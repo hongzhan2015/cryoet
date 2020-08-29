@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#SBATCH -A emslp50505
+#SBATCH -t 1:00:00
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH -J unblur
+#SBATCH -e unblur-%j-%a.err
+#SBATCH -o unblur-%j-%a.out
+#SBATCH --array=1-41
+
+LINE=$(sed -n "$SLURM_ARRAY_TASK_ID"p list.txt)
+
+unblur <<foo
+${LINE}
+${LINE}_aligned.mrc
+0.8265
+2
+yes
+300
+0.37
+0.0
+yes
+2.0
+80.0
+1500
+1
+1
+1
+20
+yes
+no
+SuperRef_stack_28_00000_0.0_Jan09_16.55.43.dm4
+1
+0
+no
+foo
