@@ -1,13 +1,72 @@
-# cryoet
-Script for Cryo-tomography workflow
+# Notebook for Cryo-electron tomography data preprocessing
+## _Hong Zhan, ver 2023-03-07_
 
-## Plot average back to the tomograms using emClarity
-1) extract variable in matlab: 
-a. running csvwrite('filename.csv',variable.cycle#.Avg_geometry.tilt#)
-b. column 14-16 are Euler angle, with convention: Z1-X-Z2; From emClarity website: 'The angles input to emClarity describe ZXZ active intrinsic rotations of the particles coordinate system. That is to say, the basis vectors describing the average particle in the microscope reference frame are rotated (positive anti-clockwise) around Z, the new X, and the new Z axis. The final transformation describes the coordinate system attached to any given particle in your data set.'
-'Given the above description of the Euler angles, the gridvectors calculated in matlab (micrscope basis) are transformed by Z1,X,Z2 and used to ask what is the density there, rotate it back into the microscope reference frame. To rotate an average from the microscope frame to the particle, the gridvectors are multiplied by -Z2,-X,-Z1.'
-c. copy out the 14-16 Euler angle in a csv table, then change Z1-X-Z2 to Z2-X-Z1 then multiple by (-1)
-d. run MOTL2Slicer INPUT OUTPUT, output file will be written in X, Y, Z convention
-d. copy output into summary.csv, first column is #coutour, #X, #y, #z, x_angle, y_angle, z_angle
-f. run clonemodel -at summary.csv INPUT.mod OUTPUT.mod
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
+Customized scripts for organizing cryo-electron tomography data pre-processing for the subtomogram pipeline
+
+- Python script
+- Docker images
+- Bash scripts
+
+### For examples
+- Tilt-series are collected using dose-symmetry scheme, and each tilt-series are collected from -{max} to {max} format. You can also use .mdoc file in imod function alignframe, however, it is much better to use unblur and motioncor.
+
+## Frame alignments using unblur on a SLURM cluster
+- create a list containing all tiff files
+```
+ls *.tif >> list.txt
+```
+- create a submission file
+```
+#!/bin/bash
+
+#SBATCH -A XXXXXX
+#SBATCH -t 1:00:00
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH -J unblur
+#SBATCH -e unblur-%j-%a.err
+#SBATCH -o unblur-%j-%a.out
+#SBATCH --array=1-41
+
+LINE=$(sed -n "$SLURM_ARRAY_TASK_ID"p list.txt)
+
+unblur <<foo
+${LINE}
+${LINE}_aligned.mrc
+0.8265
+2
+yes
+300
+0.37
+0.0
+yes
+2.0
+80.0
+1500
+1
+1
+1
+20
+yes
+no
+[Gain Reference]
+1
+0
+no
+foo
+```
+Important information check on dockerhub
+https://hub.docker.com/r/hzhan3/unblur
+
+## Put aligned tilt-series into corresponding subdirectories
+```
+python mvsubdir2.py
+```
+- In the tilt-series subdirectory, rename tilt series according from -{max} to {max}, example here increament degree is 3. 
+```
+python namechange_3degrees_HZ.py
+```
+
+This is a simplified manual for using scripts for tomographic data analysis and subtomogram averaging processing using different software packages.
