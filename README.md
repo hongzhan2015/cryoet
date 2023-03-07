@@ -69,4 +69,9 @@ python mvsubdir2.py
 python namechange_3degrees_HZ.py
 ```
 
+- emClarity and Relion requested an order file that contains tile angle collected in real-time order and is used for dose-weighted analysis. running following script can generate an order file, but need to change corresponding colums:
+```
+python order_generate.py 
+```
+
 This is a simplified manual for using scripts for tomographic data analysis and subtomogram averaging processing using different software packages.
