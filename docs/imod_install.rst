@@ -24,6 +24,7 @@ To install java:
 To install IMOD with default settings:
 
 .. code-block:: console
+
     sh imod_4.11.24_RHEL7-64_CUDA8.0.sh
 
 To activate IMOD, source IMOD-Linux.sh or IMOD-linux.csh:
@@ -61,7 +62,7 @@ To install PEET:
 
 Add PEET onto the $PATH and reboot the system. 
 
-Check useful webpage for programs inside PEET: `Program <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`_
+Check useful webpage for programs inside PEET: `Program Description <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`_
 
 I am running all programs on Ubuntu 22.04 for workstation, Centos 7 on GPU server, and the following GPUs:
     - NVIDIA RTX 2080
