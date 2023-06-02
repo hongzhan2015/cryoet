@@ -57,12 +57,14 @@ Install cudnn via conda-forge:
 Because some software, like Scripion's plugins, needs specific version of gcc and g++, it is necessary to install multiple version of gcc and g++. 
 
 For example, to install gcc-7,8,9 and g++-7,8,9:
+
 .. code-block:: console
 
     sudo apt install build-essential
     sudo apt -y install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
 
 Use the update-alternatives tool to create list of multiple GCC and G++ compiler alternatives: 
+
 .. code-block:: console
 
     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
@@ -73,6 +75,7 @@ Use the update-alternatives tool to create list of multiple GCC and G++ compiler
     sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
 
 Check the available C and C++ compilers list on your Ubuntu 22.04 system and select desired version by entering relevant selection number:  
+
 .. code-block:: console
     
     sudo update-alternatives --config gcc
