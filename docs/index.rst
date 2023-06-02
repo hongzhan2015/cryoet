@@ -9,6 +9,11 @@ There are many different software packages used for data processing.
 Guide: Software and Installation
 ==================================
 
+.. toctree::
+
+   Home <self>
+   Installation
+
 Help
 ====
 
