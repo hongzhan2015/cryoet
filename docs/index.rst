@@ -12,7 +12,7 @@ Guide: Software and Installation
 .. toctree::
 
    Home <self>
-   Installation
+   installation
 
 Help
 ====
