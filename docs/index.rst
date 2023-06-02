@@ -15,10 +15,12 @@ Guide: Software and Installation
    installation
    imod_install
 
+Subtomogram averaging workflow
+==================================
 
 .. image:: images/workflow.png
+  :align: right
   :width: 400
-  :alt: Alternative text
 
 Help
 ====
