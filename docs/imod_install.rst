@@ -1,5 +1,5 @@
 Installation IMOD software
-===================================================
+==========================
 
 Linux system - Ubuntu 22.04LTS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -10,7 +10,6 @@ Require Java:
 
 .. code-block:: console
     java -version
-
 
 To install java:
 
@@ -40,7 +39,7 @@ If you want to run IMOD temporarily:
 
 You can substitute testIMOD to any directory you want. It is good to install on a server. 
 
-2. Install PEET:
+2. Install PEET
 """"""""""""""""
 
 PEET is a program developed by Dr. John Heumann. check website: `PEET <https://bio3d.colorado.edu/PEET/>` for more information
@@ -58,7 +57,7 @@ To install PEET:
 
 Add PEET onto the $PATH and reboot the system. 
 
-Check useful webpage for programs inside PEET: https://bio3d.colorado.edu/ftp/PEET/man/html/index.html
+Check useful webpage for programs inside PEET: `Program <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`
 
 I am running all programs on Ubuntu 22.04 for workstation, Centos 7 on GPU server, and the following GPUs:
     - NVIDIA RTX 2080

@@ -1,5 +1,5 @@
-Installation miniconda and configuration conda envs
-===================================================
+Installation miniconda
+======================
 
 Configuration conda environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -9,7 +9,7 @@ I am using miniconda3 for configuration of python envirnment `miniconda3 <https:
 There are couple of main steps to install and configure miniconda3:
 
 1. Download & Install miniconda3
-""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 
 .. code-block:: console
 
