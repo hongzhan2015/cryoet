@@ -15,6 +15,11 @@ Guide: Software and Installation
    installation
    imod_install
 
+
+.. image:: images/workflow.png
+  :width: 400
+  :alt: Alternative text
+
 Help
 ====
 
