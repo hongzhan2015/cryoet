@@ -6,12 +6,15 @@ Linux system - Ubuntu 22.04LTS
 
 To get the latest emClarity github, please visit `emClarity <https://github.com/StochasticAnalytics/emClarity/wiki>`_ for more information. 
 
-.. warning::
+.. note::
 
     It is possible to rebuild emClarity from its source code. But it is pretty difficult to do.
+
     emClarity runs on GPUs, and both workstation with Titan RTX and GPU server equipped with A100 will do the job. 
     Attention for matlab runtime version.
+
     You also need to make sure IMOD and Chimera on the PATH so that emClarity can find them. 
+    
     Make sure CUDA is in the PATH also. 
 
 1. Download & Install matlab runtime
