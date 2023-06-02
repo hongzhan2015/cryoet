@@ -77,11 +77,3 @@ Check the available C and C++ compilers list on your Ubuntu 22.04 system and sel
     sudo update-alternatives --config gcc
 
 There are 3 choices for the alternative gcc (providing /usr/bin/gcc).
-
-  Selection    Path            Priority   Status
-------------------------------------------------------------
-  0            /usr/bin/gcc-9   9         auto mode
-  1            /usr/bin/gcc-7   7         manual mode
-* 2            /usr/bin/gcc-8   8         manual mode
-  3            /usr/bin/gcc-9   9         manual mode
-Press  to keep the current choice [*], or type selection number: 
