@@ -18,4 +18,4 @@ Guide: Software and Installation
 Help
 ====
 
-Useful script is at my repository on GitHub: `<https://github.com/hongzhan2015/cryoet>`
+Useful script is at my repository on GitHub: `<https://github.com/hongzhan2015/cryoet>`_

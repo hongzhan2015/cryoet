@@ -17,7 +17,7 @@ To install java:
     sudo apt install default-jre
 
 1. Download & Install miniconda3
-""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 
 To install IMOD with default settings:
 
@@ -42,7 +42,7 @@ You can substitute testIMOD to any directory you want. It is good to install on 
 2. Install PEET
 """"""""""""""""
 
-PEET is a program developed by Dr. John Heumann. check website: `PEET <https://bio3d.colorado.edu/PEET/>` for more information
+PEET is a program developed by Dr. John Heumann. check website: `PEET <https://bio3d.colorado.edu/PEET/>`_ for more information
 
 Useful programs used by PEET: 
 
@@ -57,7 +57,7 @@ To install PEET:
 
 Add PEET onto the $PATH and reboot the system. 
 
-Check useful webpage for programs inside PEET: `Program <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`
+Check useful webpage for programs inside PEET: `Program <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`_
 
 I am running all programs on Ubuntu 22.04 for workstation, Centos 7 on GPU server, and the following GPUs:
     - NVIDIA RTX 2080
