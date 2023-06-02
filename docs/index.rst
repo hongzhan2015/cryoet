@@ -13,6 +13,7 @@ Guide: Software and Installation
 
    Home <self>
    installation
+   imod_install
 
 Help
 ====
