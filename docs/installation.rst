@@ -11,7 +11,7 @@ There are couple of main steps to install and configure miniconda3:
 1. Download & Install miniconda3
 """"""""""""""""""""
 
-.. prompt:: bash $
+.. code-block:: console
 
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh
@@ -23,20 +23,20 @@ I recommend not to initate conda at beginning, you can activate conda when you w
 
 Here is an example for installing IsoNet using Python 3.8
 
-.. prompt:: bash $
+.. code-block:: console
 
     conda create --name IsoNet python=3.8
     conda activate IsoNet
 
 Install the required plugins via pip:
 
-.. prompt:: bash $
+.. code-block:: console
 
     pip install -r requirement.txt
     
 Install cudnn via conda-forge:
 
-.. prompt:: bash $
+.. code-block:: console
 
     conda install -c conda-forge cudnn
 
@@ -44,7 +44,7 @@ Install cudnn via conda-forge:
 3. Add program into PATH variable
 """""""""""""""""""""""""""""""""
 
-.. prompt:: bash $
+.. code-block:: console
   #!/bin/bash
   conda activate isonet
   export PATH="/home/hzhan/IsoNet/IsoNet/bin:$PATH"
