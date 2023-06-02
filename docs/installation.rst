@@ -52,7 +52,8 @@ Install cudnn via conda-forge:
     export PYTHONPATH="/home/hzhan/IsoNet:$PYTHONPATH"
 
 4. Configuration of multiple GCC and G++
-"""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
+
 Because some software, like Scripion's plugins, needs specific version of gcc and g++, it is necessary to install multiple version of gcc and g++. 
 
 For example, to install gcc-7,8,9 and g++-7,8,9:
