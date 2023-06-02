@@ -31,8 +31,3 @@ html_theme_options = {
     'logo_only' : 'True',
     'style_nav_header_background' : '#5a8089',
 }
-
-extensions += ['sphinx-prompt']
-
-def setup(app):
-    app.add_js_file("version-alert.js")
