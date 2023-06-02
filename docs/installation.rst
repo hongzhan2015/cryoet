@@ -45,11 +45,43 @@ Install cudnn via conda-forge:
 """""""""""""""""""""""""""""""""
 
 .. code-block:: console
-  #!/bin/bash
-  conda activate isonet
-  export PATH="/home/hzhan/IsoNet/IsoNet/bin:$PATH"
-  export PYTHONPATH="/home/hzhan/IsoNet:$PYTHONPATH"
 
-I am running all programs on Ubuntu 22.04 for workstation, Centos 7 on GPU server, and the following GPUs:
-    - NVIDIA RTX 2080
-    - NVIDIA A100
+    #!/bin/bash
+    conda activate isonet
+    export PATH="/home/hzhan/IsoNet/IsoNet/bin:$PATH"
+    export PYTHONPATH="/home/hzhan/IsoNet:$PYTHONPATH"
+
+4. Configuration of multiple GCC and G++
+"""""""""""""""""""""""""""""""""
+Because some software, like Scripion's plugins, needs specific version of gcc and g++, it is necessary to install multiple version of gcc and g++. 
+
+For example, to install gcc-7,8,9 and g++-7,8,9:
+.. code-block:: console
+
+    sudo apt install build-essential
+    sudo apt -y install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
+
+Use the update-alternatives tool to create list of multiple GCC and G++ compiler alternatives: 
+.. code-block:: console
+
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
+
+Check the available C and C++ compilers list on your Ubuntu 22.04 system and select desired version by entering relevant selection number:  
+.. code-block:: console
+    
+    sudo update-alternatives --config gcc
+
+There are 3 choices for the alternative gcc (providing /usr/bin/gcc).
+
+  Selection    Path            Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/gcc-9   9         auto mode
+  1            /usr/bin/gcc-7   7         manual mode
+* 2            /usr/bin/gcc-8   8         manual mode
+  3            /usr/bin/gcc-9   9         manual mode
+Press  to keep the current choice [*], or type selection number: 
