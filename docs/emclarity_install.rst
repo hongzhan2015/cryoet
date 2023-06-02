@@ -6,71 +6,78 @@ Linux system - Ubuntu 22.04LTS
 
 To get the latest emClarity github, please visit `emClarity <https://github.com/StochasticAnalytics/emClarity/wiki>`_ for more information. 
 
-
 .. warning::
 
     It is possible to rebuild emClarity from its source code. But it is pretty difficult to do.
     emClarity runs on GPUs, and both workstation with Titan RTX and GPU server equipped with A100 will do the job. 
     Attention for matlab runtime version.
+    You also need to make sure IMOD and Chimera on the PATH so that emClarity can find them. 
+    Make sure CUDA is in the PATH also. 
 
-Require matlab runtime:
+1. Download & Install matlab runtime
+""""""""""""""""""""""""""""""""""""
+Require matlab runtime v2021a.
+
+To install matlab runtime:
+
 
 .. code-block:: console
     
-    java -version
+    wget https://ssd.mathworks.com/supportfiles/downloads/R2021a/Release/8/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2021a_Update_8_glnxa64.zip
+    mkdir matlab_runtime_install
+    unzip glnxa64/MATLAB_Runtime_R2021a_Update_8_glnxa64.zip -d ./matlab_runtime_install
+    sudo ./install -agreeToLicense yes
 
-To install java:
+To configure matlab runtime path:
+---------------------------------- 
 
-.. code-block:: console
++------------------------+------------------+----------------------------------------------------+
+| OS system              |      Env Var     |        Dir                                         |
++========================+==================+====================================================+
+| Windows OS             |       PATH       | 	<MATLAB_RUNTIME_INSTALL_DIR>\runtime\<arch>      |
++------------------------+------------------+----------------------------------------------------+
+| Linux OS               | LD_LIBRARY_PATH  |   <MATLAB_RUNTIME_INSTALL_DIR>/runtime/glnxa64     |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/bin/glnxa64         |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/sys/os/glnxa64      |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/extern/bin/glnxa64  |
++------------------------+------------------+----------------------------------------------------+
+| Mac OS                 | DLD_LIBRARY_PATH |   <MATLAB_RUNTIME_INSTALL_DIR>/runtime/maci64      |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/bin/maci64          |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/sys/os/maci64       |
+|                        |                  |   <MATLAB_RUNTIME_INSTALL_DIR>/extern/bin/maci64   |
++------------------------+------------------+----------------------------------------------------+
 
-    sudo apt install default-jre
+2. Download latest emclarity version
+""""""""""""""""""""""""""""""""""""
 
-1. Download & Install miniconda3
-""""""""""""""""""""""""""""""""
+Go to emClarity GitHub and in the Wiki page, download by clicking the latest version v1.6.1: `<https://github.com/StochasticAnalytics/emClarity/wiki>`_
 
-To install IMOD with default settings:
-
-.. code-block:: console
-
-    sh imod_4.11.24_RHEL7-64_CUDA8.0.sh
-
-To activate IMOD, source IMOD-Linux.sh or IMOD-linux.csh:
-
-.. code-block:: console
-
-    source /usr/local/IMOD/IMOD-linux.sh
-
-
-If you want to run IMOD temporarily:
-
-.. code-block:: console
-
-    mkdir imod_install
-    wget https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.24_RHEL7-64_CUDA8.0.sh
-    sh imod_4.11.24_RHEL7-64_CUDA8.0 -dir ./imod_install -skip
-
-You can substitute testIMOD to any directory you want. It is good to install on a server. 
-
-2. Install PEET
-""""""""""""""""
-
-PEET is a program developed by Dr. John Heumann. check website: `PEET <https://bio3d.colorado.edu/PEET/>`_ for more information
-
-Useful programs used by PEET: 
-
-To install PEET:
+After download, editing the emclarity_1.6.0_v21a file to point out the matlab runtime path: 
 
 .. code-block:: console
 
-    wget https://bio3d.colorado.edu/ftp/PEET/linux/Particle_1.16.0a_linux.sh
-    wget https://bio3d.colorado.edu/ftp/PEET/linux/ParticleRuntimeV99_linux.tgz
-    sh Particle_1.16.0a_linux.sh
-    tar -xfzf ParticleRuntimeV99_linux.tgz -C /path/where/to/extract/
+    MCR_BASH=/usr/local/MATLAB/MATLAB_Runtime/v910/runtime/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/bin/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/sys/os/glnxa64:/usr/local/MATLAB/MATLAB_Runtime/v910/extern/bin/glnxa64
 
-Add PEET onto the $PATH and reboot the system. 
+    export emClarity_ROOT=/home/hzhan/emClarity_1.6.0/emClarity_1.6.1.0
+    export LD_LIBRARY_PATH=${emClarity_ROOT}/lib:${MCR_BASH}:${LD_LIBRARY_PATH}
 
-Check useful webpage for programs inside PEET: `Program Description <https://bio3d.colorado.edu/ftp/PEET/man/html/index.html>`_
 
-I am running all programs on Ubuntu 22.04 for workstation, Centos 7 on GPU server, and the following GPUs:
-    - NVIDIA RTX 2080
-    - NVIDIA A100
+Creating a emClarity alias so that you can call emClarity easily:
+
+.. code-block:: console
+
+    #!/bin/bash
+    export PATH="/home/hzhan/emClarity_1.6.0/emClarity_1.6.1.0/bin:$PATH"
+    alias emClarity='/home/hzhan/emClarity_1.6.0/emClarity_1.6.1.0/bin/emClarity_1_6_1_0_v21a'
+
+
+3. Make test run to check installation
+""""""""""""""""""""""""""""""""""""""
+
+.. code-block:: console
+
+    emClarity check
+
+
+If you want to check detailed manual created by Thomas Frosio, here is the link to his github: `<https://github.com/ffyr2w/emClarity-tutorial>`_
+

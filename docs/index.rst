@@ -8,8 +8,7 @@ There are many different software packages used for data processing.
 The following is the current workflow to subtomogram averaging:
 
 .. image:: images/workflow.png
-  :align: right
-  :width: 200
+  :width: 400
 
 
 Guide for Software and Installation
@@ -20,6 +19,7 @@ Guide for Software and Installation
    Home <self>
    installation
    imod_install
+   emclarity_install
 
 Subtomogram averaging workflow
 ==================================
