@@ -18,13 +18,14 @@ To install java:
 
     sudo apt install default-jre
 
-1. Download & Install miniconda3
+1. Download & Install imod
 """"""""""""""""""""""""""""""""
 
 To install IMOD with default settings:
 
 .. code-block:: console
 
+    wget https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.24_RHEL7-64_CUDA8.0.sh
     sh imod_4.11.24_RHEL7-64_CUDA8.0.sh
 
 To activate IMOD, source IMOD-Linux.sh or IMOD-linux.csh:
