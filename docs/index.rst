@@ -20,6 +20,7 @@ Guide for Software and Installation
    installation
    imod_install
    emclarity_install
+   Tomogram_reconstruction
 
 Subtomogram averaging workflow
 ==================================
